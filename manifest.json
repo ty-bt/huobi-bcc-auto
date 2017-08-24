@@ -1,0 +1,17 @@
+{
+	"name": "火币自动化交易",
+	"version": "1.0",
+	"manifest_version": 2,
+	"description": "火币自动化交易",
+	"browser_action": {
+		"default_icon": "icon.png",
+		"popup": "popup.html",
+		"default_popup": "popup.html"
+	},
+	"permissions": [
+		"webRequest",
+		"webRequestBlocking",
+		"wss://*/",
+		"https://*/"
+	]
+}

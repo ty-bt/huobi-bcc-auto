@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="main">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="main.css" rel="stylesheet">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="echarts.min.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="pako.js"></script>
+
+</head>
+<body>
+    <div class="main">
+        <h2>火币自动交易</h2>
+        <table class="price">
+            <tr>
+                <td>
+                    <span class="price">BCC/CNY：{{bcccny.tick.close | currency: '￥'}}</span><br/>
+                    <span class="ts">{{bcccny.ts | date: 'HH:mm:ss'}}</span>
+                </td>
+                <td>
+                    <span class="price">BTC/CNY：{{btccny.tick.close | currency: '￥'}}</span><br/>
+                    <span class="ts">{{btccny.ts | date: 'HH:mm:ss'}}</span>
+                </td>
+                <td>
+                    <span class="price">BCC/BTC：{{bccbtc.tick.close}}</span><br/>
+                    <span class="ts">{{bccbtc.ts | date: 'HH:mm:ss'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="price">bccbtc成本：{{btcbccCB | currency: '￥'}}</span>
+                </td>
+                <td>
+                    <span class="price">差利：{{liCha | number: 2}}</span>
+                </td>
+                <td>
+                    <h3 style="color: #ee3523">差利百分比：{{liChaLv | number:2}}% ({{changeChaLv > 0 ? "+" : ""}}{{changeChaLv | number:2}})</h3>
+                </td>
+            </tr>
+        </table>
+        <button ng-click="openAuto = !openAuto">自动交易({{openAuto ? "open" : "close"}})</button> <span class="auto-status" ng-class="{'open': openAuto, 'running': autoStatus}"></span>
+        <div id="chart" style="width: 100%; height: 300px;">
+
+        </div>
+    </div>
+
+</body>
+<script src="main.js"></script>
+
+</html>

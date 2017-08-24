@@ -1,0 +1,5 @@
+.main{width: 500px;  padding: 10px 20px; }
+.price{width: 100%; text-align: center}
+.auto-status {display: inline-block; width: 20px; height: 20px; margin-left: 20px; border-radius: 50% 50%; background: #000}
+.auto-status.open{background: green}
+.auto-status.running{background: yellow}
